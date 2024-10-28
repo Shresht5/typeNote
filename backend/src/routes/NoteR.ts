@@ -1,16 +1,11 @@
-
 import express from "express";
-import noteModel from "../models/NoteModel";
+import { createNotes, deleteNote, getAllNotes, getnote, updateNote } from "../controller/getNotes";
 const router = express.Router();
 
-router.get('/', async (req, res, next) => {
-    try {
-        const notes = await noteModel.find({})
-        res.status(200).json({ success: true, message: "all notes", notes })
-
-    } catch (err) {
-        next(err)
-    }
-})
+router.get('/allnotes', getAllNotes)
+router.post('/createnote', createNotes)
+router.get('/getnote/:title', getnote)
+router.put('/updatenote/:id', updateNote)
+router.delete('/deletenote/:id', deleteNote)
 
 export default router

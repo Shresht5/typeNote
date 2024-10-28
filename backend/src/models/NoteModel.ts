@@ -7,5 +7,5 @@ const noteSchema = new mongoose.Schema({
 
 type NoteT = InferSchemaType<typeof noteSchema>
 
-const noteModel = mongoose.model('notes', noteSchema)
+const noteModel = mongoose.model<NoteT>('notes', noteSchema)
 export default noteModel
