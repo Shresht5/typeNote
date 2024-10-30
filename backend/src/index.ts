@@ -17,6 +17,7 @@ app.use(morgan("dev"))
 app.use(express.json())
 
 app.use('/api/notes', NoteR)
+app.use('/api/user', NoteR)
 
 // app.use((req, res, next) => {
 //     next(Error("Endpoint not found"))
